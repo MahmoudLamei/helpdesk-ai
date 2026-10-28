@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.env
+
+# Data and artifacts are tracked by DVC / MLflow, not git
+/data/*
+!/data/.gitkeep
+mlruns/
+mlartifacts/

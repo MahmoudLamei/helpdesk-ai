@@ -4,7 +4,13 @@ version = "0.1.0"
 description = "Customer-support AI: MLOps, RAG and agents learning project"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "datasets>=5.1.0",
+    "dvc>=3.67.1",
+    "mlflow>=3.17.2",
+    "pandas>=3.1.0",
+    "scikit-learn>=1.9.1",
+]
 
 [dependency-groups]
 dev = [

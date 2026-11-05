@@ -1,4 +1,4 @@
-.PHONY: install lint format test
+.PHONY: install lint format test clean train
 
 install:
 	uv sync
@@ -14,3 +14,9 @@ format:
 
 test:
 	uv run pytest
+
+clean:
+	uv run python -m helpdesk.data.clean
+
+train: clean
+	uv run python -m helpdesk.train --label intent --analyzer char_wb --ngram-max 5

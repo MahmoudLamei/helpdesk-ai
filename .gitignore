@@ -5,6 +5,7 @@ __pycache__/
 .ruff_cache/
 .ipynb_checkpoints/
 .env
+mlflow.db
 
 # Data and artifacts are tracked by DVC / MLflow, not git
 /data/**

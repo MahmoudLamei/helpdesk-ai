@@ -1489,7 +1489,6 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "datasets" },
-    { name = "dvc" },
     { name = "mlflow" },
     { name = "pandas" },
     { name = "scikit-learn" },
@@ -1497,6 +1496,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "dvc" },
     { name = "pre-commit" },
     { name = "pytest" },
     { name = "ruff" },
@@ -1505,7 +1505,6 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "datasets", specifier = ">=5.1.0" },
-    { name = "dvc", specifier = ">=3.67.1" },
     { name = "mlflow", specifier = ">=3.17.2" },
     { name = "pandas", specifier = ">=3.1.0" },
     { name = "scikit-learn", specifier = ">=1.9.1" },
@@ -1513,6 +1512,7 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "dvc", specifier = ">=3.67.1" },
     { name = "pre-commit", specifier = ">=3.7" },
     { name = "pytest", specifier = ">=8" },
     { name = "ruff", specifier = ">=0.6" },

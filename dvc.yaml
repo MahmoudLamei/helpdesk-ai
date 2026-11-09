@@ -1,0 +1,8 @@
+stages:
+  clean:
+    cmd: uv run python -m helpdesk.data.clean
+    deps:
+      - data/raw/tickets.parquet
+      - src/helpdesk/data/clean.py
+    outs:
+      - data/processed/tickets.parquet

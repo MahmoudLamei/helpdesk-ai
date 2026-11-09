@@ -1,0 +1,18 @@
+schema: '2.0'
+stages:
+  clean:
+    cmd: uv run python -m helpdesk.data.clean
+    deps:
+    - path: data/raw/tickets.parquet
+      hash: md5
+      md5: 8eaf38f24db1173c5d02a4f86f51e313
+      size: 5853598
+    - path: src/helpdesk/data/clean.py
+      hash: md5
+      md5: 84cc4f6c8ed078ac4d8b044235c9b362
+      size: 800
+    outs:
+    - path: data/processed/tickets.parquet
+      hash: md5
+      md5: 7fc36039deac6555bd107fd02dd51808
+      size: 5187132

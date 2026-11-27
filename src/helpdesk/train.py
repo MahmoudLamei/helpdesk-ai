@@ -1,11 +1,11 @@
 """Train a baseline ticket classifier."""
 
-import argparse
 import json
 from pathlib import Path
 
 import mlflow
 import pandas as pd
+import yaml
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, f1_score
@@ -17,6 +17,7 @@ TEXT_COL = "instruction"
 SEED = 42
 TEST_SIZE = 0.2
 METRICS_PATH = Path("metrics.json")
+PARAMS_PATH = Path("params.yaml")
 
 
 def train(
@@ -65,19 +66,5 @@ def train(
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--label", default="category", choices=["category", "intent"])
-    parser.add_argument("--ngram-max", type=int, default=1)
-    parser.add_argument("--analyzer", default="word", choices=["word", "char_wb"])
-    parser.add_argument("--C", type=float, default=1.0)
-    parser.add_argument("--class-weight", default=None, choices=["balanced"])
-    args = parser.parse_args()
-
-    score = train(
-        label_col=args.label,
-        ngram_max=args.ngram_max,
-        analyzer=args.analyzer,
-        C=args.C,
-        class_weight=args.class_weight,
-    )
-    print(f"macro-F1: {score:.4f}")
+    params = yaml.safe_load(PARAMS_PATH.read_text())["train"]
+    print(f"macro-F1: {train(**params):.4f}")

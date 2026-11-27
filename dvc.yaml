@@ -8,10 +8,12 @@ stages:
       - data/processed/tickets.parquet
 
   train:
-    cmd: uv run python -m helpdesk.train --label intent --analyzer char_wb --ngram-max 5
+    cmd: uv run python -m helpdesk.train
     deps:
       - data/processed/tickets.parquet
       - src/helpdesk/train.py
+    params:
+      - train
     metrics:
       - metrics.json:
           cache: false

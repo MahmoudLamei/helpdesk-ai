@@ -1,0 +1,6 @@
+train:
+  label_col: intent
+  analyzer: char_wb
+  ngram_max: 5
+  C: 10
+  class_weight:

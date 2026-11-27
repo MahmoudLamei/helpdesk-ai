@@ -16,3 +16,20 @@ stages:
       hash: md5
       md5: 7fc36039deac6555bd107fd02dd51808
       size: 5187132
+  train:
+    cmd: uv run python -m helpdesk.train --label intent --analyzer char_wb 
+      --ngram-max 5
+    deps:
+    - path: data/processed/tickets.parquet
+      hash: md5
+      md5: 7fc36039deac6555bd107fd02dd51808
+      size: 5187132
+    - path: src/helpdesk/train.py
+      hash: md5
+      md5: 80b74aeba9c394cf4ef92ea31f0f1701
+      size: 2675
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: 11d3207c1e1efbee3fd1c9563ff1a6ff
+      size: 37

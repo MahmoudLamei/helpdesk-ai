@@ -9,5 +9,7 @@ repos:
     rev: v6.0.0
     hooks:
       - id: end-of-file-fixer
+        exclude: ^dvc\.lock$
       - id: trailing-whitespace
+        exclude: ^dvc\.lock$
       - id: check-added-large-files

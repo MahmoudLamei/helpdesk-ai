@@ -1,6 +1,7 @@
 """Train a baseline ticket classifier."""
 
 import argparse
+import json
 from pathlib import Path
 
 import mlflow
@@ -15,6 +16,7 @@ DATA_PATH = Path("data/processed/tickets.parquet")
 TEXT_COL = "instruction"
 SEED = 42
 TEST_SIZE = 0.2
+METRICS_PATH = Path("metrics.json")
 
 
 def train(
@@ -57,6 +59,7 @@ def train(
         score = f1_score(y_test, y_pred, average="macro")
 
         mlflow.log_metric("macro_f1", score)
+        METRICS_PATH.write_text(json.dumps({"macro_f1": score}, indent=2) + "\n")
         mlflow.sklearn.log_model(model, name="model")
         return score
 
